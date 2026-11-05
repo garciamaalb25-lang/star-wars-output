@@ -1,0 +1,16 @@
+<section class="card mb-4" style="max-width: 320px">
+    <div class="card-body">
+        <h4 class="card-title">{{people()?.name}}</h4>
+        <!-- uso de @if: muestro una etiqueta distinta en función del género del personaje -->
+        @if (people()?.gender === 'male') {
+        <span class="badge text-bg-primary mb-2">Male</span>
+        } @else if (people()?.gender === 'female') {
+        <span class="badge text-bg-danger mb-2">Female</span>
+        } @else {
+        <span class="badge text-bg-secondary mb-2">{{people()?.gender}}</span>
+        }
+        <p class="card-text">({{people()?.url}})</p>
+        <!-- STEP7: defino un evento clic sobre el botón que quiero que lance un evento de salida, es decir, output al componente padre para que este realice la acción que en este caso sería abrir un modal con la información del personaje sobre el que he hecho click-->
+        <button type="button" class="btn btn-primary" (click)="emitPeopleClicked()">View detail</button>
+    </div>
+</section>
